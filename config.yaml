@@ -1,0 +1,31 @@
+# Global Configuration for Agent System
+# =====================================
+
+# System settings
+system:
+  name: "Hierarchical Agent System"
+  version: "1.0.0"
+  log_level: "INFO"
+
+# Default model settings
+models:
+  default: "claude-sonnet-4-20250514"
+  fallback: "claude-haiku-4-20250514"
+
+# Orchestrator settings
+orchestrator:
+  max_concurrent_swarms: 5
+  discovery_interval_seconds: 30
+  auto_discover: true
+
+# Agent defaults
+agent_defaults:
+  max_turns: 10
+  timeout_seconds: 300
+  retry_attempts: 3
+
+# User preferences
+user:
+  interactive_mode: true
+  verbose_output: false
+  confirm_actions: true

@@ -1,0 +1,43 @@
+# Swarm Configuration Template
+# Copy this directory and customize for your swarm
+
+name: "template-swarm"
+description: "A template swarm configuration"
+version: "1.0.0"
+
+# Agent definitions
+agents:
+  - name: "Orchestrator"
+    role: "orchestrator"
+    model: "claude-sonnet-4-20250514"
+    system_prompt: |
+      You are the swarm orchestrator. Your responsibilities:
+      - Receive tasks from the supreme orchestrator
+      - Break down complex tasks into subtasks
+      - Delegate work to worker agents
+      - Review outputs from critics
+      - Report consolidated progress
+
+  - name: "Worker"
+    role: "worker"
+    model: "claude-sonnet-4-20250514"
+    system_prompt: |
+      You are a worker agent. Your responsibilities:
+      - Execute tasks assigned by the orchestrator
+      - Produce high-quality outputs
+      - Report completion status and any blockers
+
+  - name: "Critic"
+    role: "critic"
+    model: "claude-sonnet-4-20250514"
+    system_prompt: |
+      You are a critic agent. Your responsibilities:
+      - Review work produced by workers
+      - Identify issues, improvements, and edge cases
+      - Provide constructive feedback
+
+# Swarm-level settings
+settings:
+  max_concurrent_tasks: 3
+  auto_review: true
+  timeout_seconds: 300
